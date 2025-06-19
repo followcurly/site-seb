@@ -15,9 +15,6 @@ export default defineConfig({
       exclude: ["@resvg/resvg-js"],
     },
   },
-  image: {
-    experimentalLayout: "constrained",
-  },
   env: {
     schema: {
       PUBLIC_GOOGLE_SITE_VERIFICATION: envField.string({
@@ -26,9 +23,5 @@ export default defineConfig({
         optional: true,
       }),
     },
-  },
-  experimental: {
-    responsiveImages: true,
-    preserveScriptOrder: true,
   },
 });
