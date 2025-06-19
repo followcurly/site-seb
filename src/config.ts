@@ -1,23 +1,24 @@
 export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  website: "https://site-seb.com/",
+  author: "Sebastian Diaz Saez",
+  profile: "https://site-seb.com/",
+  desc: "A clean, typewriter-style personal website featuring long thoughts and intellectual missives from my digital atelier.",
+  title: "Sebastian Diaz Saez",
   ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
+  lightAndDarkMode: false, // Using single clean design
+  postPerIndex: 6,
+  postPerPage: 6,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true, // show back button in post detail
+  showArchives: false,
+  showBackButton: false,
   editPost: {
-    enabled: true,
-    text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    enabled: false,
+    text: "Edit",
+    url: "",
   },
-  dynamicOgImage: true,
-  dir: "ltr", // "rtl" | "auto"
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  dynamicOgImage: false,
+  dir: "ltr",
+  lang: "en",
+  timezone: "America/New_York",
+  substackUrl: "https://followcurly.substack.com/",
 } as const;

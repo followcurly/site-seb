@@ -1,0 +1,723 @@
+---
+import { SITE } from "@/config";
+---
+
+<aside class="paper-sidebar sticky top-0 h-screen w-80 overflow-y-auto">
+  <!-- Profile Section with Bio Reveal -->
+  <div class="section-spacing text-center relative">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border border-gray-300 bg-white">
+      <img 
+        src="/profile.jpg" 
+        alt="Sebastian Diaz Saez" 
+        class="w-full h-full object-cover"
+      />
+    </div>
+    
+    <div class="relative">
+      <h1 id="name-trigger" class="typewriter-title mb-2 cursor-pointer transition-all duration-300 group hover:text-blue-600">
+        <span id="name-annotation">Sebastian Diaz Saez</span>
+      </h1>
+      
+      <!-- Hidden Bio that appears on hover -->
+      <div id="bio-reveal" class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded p-4 shadow-lg opacity-0 invisible transition-all duration-300 z-10">
+        <p class="typewriter-body text-sm">
+          I enjoy figuring out how to make technology better for people and more profitable for the business. My work involves leading teams to improve various digital products, from financial apps and payment systems to the internal tools that employees use daily. I have a strong track record of making things run more smoothly, which helps companies increase revenue and grow, all while creating a better and more effective experience for the end-user.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Intro -->
+  <div class="section-spacing">
+    <p class="typewriter-body text-sm">
+      I know that I know nothing except for <span id="corner-annotation">what I know.</span>
+    </p>
+    
+
+  </div>
+
+  <!-- Long Thoughts Section -->
+  <section class="space-y-3 mb-6">
+    <h3 class="typewriter-small uppercase tracking-wider text-gray-500 mb-4">Long Thoughts</h3>
+    <a 
+      href="https://followcurly.substack.com/"
+      id="chronicles-link"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="social-link chronicles-link flex items-center w-full p-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded border border-gray-200 transition-all duration-200 typewriter-body min-h-[48px]"
+    >
+      <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+      </svg>
+      <span id="chronicles-annotation" class="ml-3 flex-grow">Substack</span>
+    </a>
+  </section>
+
+  <!-- Social Links Section -->
+  <div class="space-y-3 mb-6">
+    <h3 class="typewriter-small uppercase tracking-wider text-gray-500 mb-4">Connect</h3>
+    
+    <!-- GitHub -->
+    <a 
+      href="https://github.com/followcurly" 
+      class="social-link github-link flex items-center w-full p-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded border border-gray-200 transition-all duration-200 typewriter-body"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+      </svg>
+      <span class="ml-3">GitHub</span>
+    </a>
+    
+    <!-- LinkedIn -->
+    <a 
+      href="https://www.linkedin.com/in/diazebas/" 
+      class="social-link linkedin-link flex items-center w-full p-3 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded border border-gray-200 transition-all duration-200 typewriter-body"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"></path>
+      </svg>
+      <span class="ml-3">LinkedIn</span>
+    </a>
+    
+    <!-- Instagram (Private) -->
+    <a 
+      href="https://www.instagram.com/followcurly/" 
+      class="social-link instagram-link flex items-center w-full p-3 text-gray-700 hover:text-pink-600 hover:bg-pink-50 rounded border border-gray-200 transition-all duration-200 typewriter-body"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 2.162c2.67 0 2.987.01 4.041.059 2.71.123 3.793 1.249 3.916 3.916.05 1.054.059 1.371.059 4.041s-.01 2.987-.059 4.041c-.123 2.667-1.206 3.793-3.916 3.916-1.054.05-1.371.059-4.041.059s-2.987-.01-4.041-.059c-2.71-.123-3.793-1.249-3.916-3.916-.05-1.054-.059-1.371-.059-4.041s.01-2.987.059-4.041C2.166 3.495 3.249 2.369 5.959 2.246 7.013 2.196 7.33 2.162 10 2.162zM10 0C7.284 0 6.944.012 5.877.06 2.246.227.227 2.242.061 5.877.012 6.944 0 7.284 0 10s.012 3.056.06 4.123c.167 3.632 2.182 5.65 5.817 5.817C6.944 19.988 7.284 20 10 20s3.056-.012 4.123-.06c3.629-.167 5.65-2.182 5.817-5.817C19.988 13.056 20 12.716 20 10s-.012-3.056-.06-4.123C19.773 2.245 17.758.228 14.123.061 13.056.012 12.716 0 10 0zm0 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path>
+      </svg>
+      <span class="ml-3">Instagram (Private)</span>
+    </a>
+    
+    <!-- Email Options -->
+    <button
+      id="email-button"
+      class="social-link email-link flex items-center w-full p-3 text-gray-700 hover:text-purple-600 hover:bg-purple-50 rounded border border-gray-200 transition-all duration-200 typewriter-body"
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+      </svg>
+      <span class="ml-3">Email Options</span>
+      <svg class="w-3 h-3 ml-1 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 2L3 7v3c0 5.25 3.75 7.5 7 9 3.25-1.5 7-3.75 7-9V7l-7-5z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Support Section -->
+  <div class="section-spacing">
+    <h3 class="typewriter-small uppercase tracking-wider text-gray-500 mb-3">Support</h3>
+    
+    <!-- Direct Crypto Payment -->
+    <button 
+      id="crypto-button"
+      class="social-link crypto-link flex items-center w-full p-3 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded border border-gray-200 transition-all duration-200 typewriter-body"
+    >
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+        <path d="M11.5 6.5V5h-1v1.5H9V5H8v1.5H6.5v1H8v5H6.5v1H8V15h1v-1.5h1.5V15h1v-1.5H13v-1h-1.5v-5H13v-1h-1.5zM11 11.5H9v-3h2v3z"/>
+      </svg>
+      <span class="ml-3">Send Crypto</span>
+    </button>
+    
+
+  </div>
+
+  <!-- Disclaimer Button -->
+  <div class="mt-auto pt-6 border-t border-gray-300">
+    <button 
+      id="disclaimer-button"
+      class="disclaimer-link w-full mb-4 p-2 text-xs typewriter-small text-gray-500 hover:text-gray-700 hover:bg-gray-50 rounded border border-gray-200 transition-all duration-200"
+    >
+      <span id="disclaimer-annotation">⚠️ Disclaimer & Terms</span>
+    </button>
+    
+    <p class="typewriter-small text-center">
+      © 2025 Sebastian Diaz Saez<br>
+      <span id="built-annotation">Built with Astro</span>
+    </p>
+  </div>
+</aside>
+
+<!-- Email Options Modal -->
+<div id="email-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+    <h3 class="typewriter-subtitle mb-4">Contact Options</h3>
+    <div class="space-y-4">
+      <!-- Regular Email -->
+      <a href="mailto:sebastian@followcurly.com" class="block p-3 bg-blue-50 rounded border hover:bg-blue-100 transition-colors">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+          </svg>
+          <div class="ml-3">
+            <div class="typewriter-body font-medium">Regular Email</div>
+            <div class="typewriter-small text-gray-600">sebastian@followcurly.com</div>
+          </div>
+        </div>
+      </a>
+      
+      <!-- ProtonMail -->
+      <a href="mailto:sebastian@proton.me" class="block p-3 bg-purple-50 rounded border hover:bg-purple-100 transition-colors">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2L3 7v3c0 5.25 3.75 7.5 7 9 3.25-1.5 7-3.75 7-9V7l-7-5z"></path>
+          </svg>
+          <div class="ml-3">
+            <div class="typewriter-body font-medium">ProtonMail (Encrypted)</div>
+            <div class="typewriter-small text-gray-600">sebastian@proton.me</div>
+          </div>
+        </div>
+      </a>
+      
+      <!-- PGP Key -->
+      <button id="pgp-button" class="block w-full p-3 bg-green-50 rounded border hover:bg-green-100 transition-colors">
+        <div class="flex items-center">
+          <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 8V6l-8-4-8 4v2l8 4 8-4zM10 7L4 4.5 10 2l6 2.5L10 7z" clip-rule="evenodd"></path>
+            <path d="M14 11.5L10 9 6 11.5v4.5h8v-4.5z"></path>
+          </svg>
+          <div class="ml-3 text-left">
+            <div class="typewriter-body font-medium">PGP Public Key</div>
+            <div class="typewriter-small text-gray-600">For maximum security</div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <button id="close-email-modal" class="mt-4 w-full p-2 bg-gray-200 rounded typewriter-body">Close</button>
+  </div>
+</div>
+
+<!-- PGP Key Modal -->
+<div id="pgp-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+    <h3 class="typewriter-subtitle mb-4">PGP Public Key</h3>
+    <div class="bg-gray-100 p-4 rounded">
+      <pre class="typewriter-small text-xs whitespace-pre-wrap break-all">-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBGXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+...
+[Your actual PGP public key would go here]
+...
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+=XXXX
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+    </div>
+    <div class="mt-4 space-y-2">
+      <button id="copy-pgp" class="w-full p-2 bg-green-600 text-white rounded typewriter-body hover:bg-green-700">Copy to Clipboard</button>
+      <button id="close-pgp-modal" class="w-full p-2 bg-gray-200 rounded typewriter-body">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced Crypto Modal -->
+<div id="crypto-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-md w-full mx-4">
+    <h3 class="typewriter-subtitle mb-4">Send Crypto (Coinbase Wallet)</h3>
+    <div class="space-y-4">
+      <!-- USDC (Recommended) -->
+      <div class="p-3 bg-blue-50 rounded border-2 border-blue-200">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="typewriter-body font-medium">💰 USDC (Recommended)</div>
+            <div class="typewriter-small text-gray-600">Base network • Low fees, stable value</div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="copy-btn p-2 bg-blue-200 rounded text-xs hover:bg-blue-300" data-copy="0x40Ef9d6d834B0600352bf07288A9c70fbF0D1760">
+              Copy Address
+            </button>
+            <button class="qr-btn p-2 bg-blue-300 rounded text-xs hover:bg-blue-400" data-address="0x40Ef9d6d834B0600352bf07288A9c70fbF0D1760" data-type="USDC" data-network="Base">
+              QR Code
+            </button>
+          </div>
+        </div>
+        <code class="block mt-2 p-2 bg-gray-100 rounded text-xs break-all">0x40Ef...1760</code>
+      </div>
+      
+      <!-- Ethereum -->
+      <div class="p-3 bg-purple-50 rounded border">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="typewriter-body font-medium">⟠ Ethereum (ETH)</div>
+            <div class="typewriter-small text-gray-600">Any network • Higher fees than Base</div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="copy-btn p-2 bg-purple-200 rounded text-xs hover:bg-purple-300" data-copy="0x40Ef9d6d834B0600352bf07288A9c70fbF0D1760">
+              Copy Address
+            </button>
+            <button class="qr-btn p-2 bg-purple-300 rounded text-xs hover:bg-purple-400" data-address="0x40Ef9d6d834B0600352bf07288A9c70fbF0D1760" data-type="ETH" data-network="Ethereum">
+              QR Code
+            </button>
+          </div>
+        </div>
+        <code class="block mt-2 p-2 bg-gray-100 rounded text-xs break-all">0x40Ef...1760</code>
+      </div>
+      
+      <!-- Bitcoin -->
+      <div class="p-3 bg-orange-50 rounded border">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="typewriter-body font-medium">₿ Bitcoin (BTC)</div>
+            <div class="typewriter-small text-gray-600">Separate BTC address</div>
+          </div>
+          <div class="flex space-x-2">
+            <button class="copy-btn p-2 bg-orange-200 rounded text-xs hover:bg-orange-300" data-copy="bc1qtxrqxq2q5sgtj5g3rnrhfwe9n7uezws7a2fzga">
+              Copy Address
+            </button>
+            <button class="qr-btn p-2 bg-orange-300 rounded text-xs hover:bg-orange-400" data-address="bc1qtxrqxq2q5sgtj5g3rnrhfwe9n7uezws7a2fzga" data-type="BTC" data-network="Bitcoin">
+              QR Code
+            </button>
+          </div>
+        </div>
+        <code class="block mt-2 p-2 bg-gray-100 rounded text-xs break-all">bc1qtxr...2fzga</code>
+      </div>
+      
+      <!-- Other crypto note -->
+      <div class="p-3 bg-gray-50 rounded border border-dashed">
+        <div class="typewriter-small text-gray-600 text-center">
+          Want to send a different crypto? 
+          <button id="email-from-crypto" class="text-blue-600 hover:underline ml-1">Email me first</button>
+        </div>
+      </div>
+    </div>
+    <button id="close-crypto-modal" class="mt-4 w-full p-2 bg-gray-200 rounded typewriter-body hover:bg-gray-300">Close</button>
+  </div>
+</div>
+
+<!-- QR Code Modal -->
+<div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-sm w-full mx-4 text-center">
+    <h3 class="typewriter-subtitle mb-4">Scan to Send <span id="qr-crypto-type">Crypto</span></h3>
+    <div id="qr-code-container" class="bg-gray-100 p-4 rounded mb-4 min-h-[200px] flex items-center justify-center">
+      <div class="text-gray-500">Generating QR code...</div>
+    </div>
+    <div class="text-xs text-gray-600 mb-4">
+      <div>Address: <span id="qr-address" class="font-mono break-all"></span></div>
+      <div class="mt-1">Network: <span id="qr-network">Base</span></div>
+    </div>
+    <div class="space-y-2">
+      <button id="copy-qr-address" class="w-full p-2 bg-blue-600 text-white rounded typewriter-body hover:bg-blue-700">Copy Address</button>
+      <button id="close-qr-modal" class="w-full p-2 bg-gray-200 rounded typewriter-body">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Disclaimer Modal -->
+<div id="disclaimer-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+    <h3 class="typewriter-subtitle mb-4">⚠️ Disclaimer & Terms</h3>
+    <div class="typewriter-body text-sm space-y-4">
+      <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
+        <p class="font-medium text-red-800">Not Financial or Professional Advice</p>
+        <p class="text-red-700">This is not financial, investment, legal, tax, or any other type of professional advice. Take my opinions and do what you will, but I am not telling you to do anything. <strong>Use your brain.</strong></p>
+      </div>
+      
+      <div class="space-y-3">
+        <h4 class="font-medium text-gray-800">What You're Getting:</h4>
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+          <li><strong>Personal opinions</strong> based on my experience</li>
+          <li><strong>Thoughts and observations</strong> about technology and business</li>
+          <li><strong>Stories and insights</strong> from my work in product management</li>
+          <li><strong>My perspective</strong> on digital products and innovation</li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-medium text-gray-800">What You're NOT Getting:</h4>
+        <ul class="list-disc list-inside space-y-1 text-gray-700">
+          <li>Investment advice or recommendations</li>
+          <li>Professional financial guidance</li>
+          <li>Legal, tax, or regulatory advice</li>
+          <li>Guaranteed outcomes or results</li>
+          <li>Personalized recommendations for your situation</li>
+        </ul>
+      </div>
+
+      <div class="border-l-4 border-yellow-500 pl-4 bg-yellow-50 p-3 rounded">
+        <p class="font-medium text-yellow-800">Your Responsibility</p>
+        <p class="text-yellow-700">Do your own research. Make your own decisions. Consult actual professionals when needed. I'm sharing my thoughts—what you do with them is entirely up to you.</p>
+      </div>
+
+      <div class="space-y-2 text-xs text-gray-600">
+        <p><strong>Crypto Payments:</strong> Addresses provided for voluntary support only. No refunds, no guarantees.</p>
+        <p><strong>External Links:</strong> I don't control or endorse external websites.</p>
+        <p><strong>PGP Key:</strong> Verify the fingerprint independently before trusting.</p>
+        <p><strong>Contemplative Chronicles:</strong> Personal reflections and philosophical musings, not professional advice.</p>
+      </div>
+
+      <div class="text-center text-xs text-gray-500 italic">
+        Last updated: January 2025
+      </div>
+    </div>
+    <button id="close-disclaimer-modal" class="mt-4 w-full p-2 bg-gray-200 rounded typewriter-body hover:bg-gray-300 transition-colors">Got It</button>
+  </div>
+</div>
+
+<style>
+  /* Prevent layout shifts for annotations */
+  #chronicles-annotation {
+    display: inline-block;
+    position: relative;
+    min-height: 1.2em;
+  }
+
+  /* Better section spacing */
+  section.space-y-3.mb-6,
+  div.space-y-3.mb-6 {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Ensure stable layout for all social links */
+  .social-link {
+    min-height: 48px;
+  }
+
+  @media (max-width: 1023px) {
+    .paper-sidebar {
+      position: relative !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+  }
+</style>
+
+<script>
+  import { annotate } from 'rough-notation';
+
+  document.addEventListener('astro:page-load', () => {
+    // Bio reveal functionality
+    const nameTrigger = document.getElementById('name-trigger');
+    const bioReveal = document.getElementById('bio-reveal');
+    
+    let bioTimeout: NodeJS.Timeout;
+    
+    nameTrigger?.addEventListener('mouseenter', () => {
+      clearTimeout(bioTimeout);
+      bioReveal?.classList.remove('opacity-0', 'invisible');
+      bioReveal?.classList.add('opacity-100', 'visible');
+      
+      // Add highlight effect only on hover
+      const nameElement = document.getElementById('name-annotation');
+      if (nameElement && !(nameElement as any)._hoverAnnotation) {
+        const nameAnnotation = annotate(nameElement, { 
+          type: 'highlight', 
+          color: '#fbbf24',
+          animationDuration: 400
+        });
+        nameAnnotation.show();
+        (nameElement as any)._hoverAnnotation = nameAnnotation;
+      }
+    });
+    
+    nameTrigger?.addEventListener('mouseleave', () => {
+      bioTimeout = setTimeout(() => {
+        bioReveal?.classList.remove('opacity-100', 'visible');
+        bioReveal?.classList.add('opacity-0', 'invisible');
+        
+        // Remove highlight effect
+        const nameElement = document.getElementById('name-annotation');
+        const annotation = nameElement ? (nameElement as any)._hoverAnnotation : null;
+        if (annotation) {
+          annotation.hide();
+          (nameElement as any)._hoverAnnotation = null;
+        }
+      }, 300);
+    });
+
+    // Enhanced hover effects with different colors for different types
+    const addHoverAnnotation = (elementId: string, type: any, color: string) => {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      
+      // Prevent layout shifts for chronicles annotation
+      if (elementId === 'chronicles-annotation') {
+        element.style.position = 'relative';
+        element.style.display = 'inline-block';
+        element.style.minHeight = '1.2em';
+      }
+      
+      element.addEventListener('mouseenter', () => {
+        if (!(element as any)._hoverAnnotation) {
+          const annotation = annotate(element, { 
+            type, 
+            color,
+            animationDuration: 200,
+            padding: elementId === 'chronicles-annotation' ? 1 : 2
+          });
+          annotation.show();
+          (element as any)._hoverAnnotation = annotation;
+        }
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        const annotation = (element as any)._hoverAnnotation;
+        if (annotation) {
+          annotation.hide();
+          (element as any)._hoverAnnotation = null;
+        }
+      });
+    };
+
+    // Color-coded hover effects
+    addHoverAnnotation('corner-annotation', 'circle', '#10b981'); // Green circle
+    
+    addHoverAnnotation('disclaimer-annotation', 'box', '#ef4444'); // Red box
+    addHoverAnnotation('built-annotation', 'crossed-off', '#6b7280'); // Gray crossed-off
+    addHoverAnnotation('chronicles-annotation', 'underline', '#3b82f6'); // Blue underline
+
+    // Enhanced social link hover effects with color coding
+    const addSocialLinkHover = (className: string, color: string, type: any = 'bracket') => {
+      const links = document.querySelectorAll(`.${className}`);
+      console.log(`Setting up hover for ${className}, found ${links.length} elements`);
+      
+      links.forEach((link) => {
+        link.addEventListener('mouseenter', () => {
+          console.log(`Hover enter on ${className} with color ${color}`);
+          if (!(link as any)._hoverAnnotation) {
+            const annotation = annotate(link, { 
+              type,
+              color,
+              animationDuration: 200,
+              brackets: type === 'bracket' ? ['left', 'right'] : undefined,
+              strokeWidth: 2
+            });
+            annotation.show();
+            (link as any)._hoverAnnotation = annotation;
+          }
+        });
+        
+        link.addEventListener('mouseleave', () => {
+          console.log(`Hover leave on ${className}`);
+          const annotation = (link as any)._hoverAnnotation;
+          if (annotation) {
+            annotation.hide();
+            (link as any)._hoverAnnotation = null;
+          }
+        });
+      });
+    };
+
+    // Color-coded social links with more visible colors
+    
+    addSocialLinkHover('github-link', '#6b7280'); // More visible gray for GitHub
+    addSocialLinkHover('linkedin-link', '#0ea5e9'); // Brighter LinkedIn blue
+    addSocialLinkHover('instagram-link', '#e1306c'); // Instagram pink
+    addSocialLinkHover('email-link', '#7c3aed'); // Purple for email security
+    addSocialLinkHover('crypto-link', '#f97316'); // Orange for crypto
+    addSocialLinkHover('disclaimer-link', '#dc2626', 'box'); // Red box for legal stuff
+    addSocialLinkHover('chronicles-link', '#4f46e5'); // Indigo for chronicles
+
+    // Modal functionality
+    const setupModal = (triggerId: string, modalId: string, closeId: string) => {
+      const trigger = document.getElementById(triggerId);
+      const modal = document.getElementById(modalId);
+      const close = document.getElementById(closeId);
+
+      trigger?.addEventListener('click', () => {
+        modal?.classList.remove('hidden');
+        modal?.classList.add('flex');
+      });
+
+      close?.addEventListener('click', () => {
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+      });
+
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      });
+    };
+
+    // Enhanced modal functionality with animations
+    const setupEnhancedModal = (triggerId: string, modalId: string, closeId: string) => {
+      const trigger = document.getElementById(triggerId);
+      const modal = document.getElementById(modalId);
+      const close = document.getElementById(closeId);
+      const modalContent = modal?.querySelector('div');
+
+      trigger?.addEventListener('click', () => {
+        // Add loading state
+        trigger.classList.add('loading');
+        
+        setTimeout(() => {
+          trigger.classList.remove('loading');
+          modal?.classList.remove('hidden');
+          modal?.classList.add('flex');
+          modalContent?.classList.add('modal-enter');
+        }, 300);
+      });
+
+      const closeModal = () => {
+        modalContent?.classList.add('modal-exit');
+        setTimeout(() => {
+          modal?.classList.add('hidden');
+          modal?.classList.remove('flex');
+          modalContent?.classList.remove('modal-enter', 'modal-exit');
+        }, 150);
+      };
+
+      close?.addEventListener('click', closeModal);
+      
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Keyboard navigation
+      modal?.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    };
+
+    // Setup all modals with enhanced functionality
+    setupEnhancedModal('email-button', 'email-modal', 'close-email-modal');
+    setupEnhancedModal('crypto-button', 'crypto-modal', 'close-crypto-modal');
+    setupEnhancedModal('disclaimer-button', 'disclaimer-modal', 'close-disclaimer-modal');
+    setupEnhancedModal('pgp-button', 'pgp-modal', 'close-pgp-modal');
+    
+    // QR modal setup (handled separately since it's triggered by QR buttons)
+    const qrModal = document.getElementById('qr-modal');
+    qrModal?.addEventListener('click', (e) => {
+      if (e.target === qrModal) {
+        qrModal.classList.add('hidden');
+        qrModal.classList.remove('flex');
+      }
+    });
+
+    // Enhanced copy functionality with better feedback
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const text = button.getAttribute('data-copy');
+        if (text) {
+          button.classList.add('loading');
+          
+          navigator.clipboard.writeText(text).then(() => {
+            button.classList.remove('loading');
+            const originalText = button.textContent;
+            const originalBg = button.className;
+            
+            button.textContent = 'Copied!';
+            button.className = originalBg.replace(/bg-\w+-\d+/, 'bg-green-500 text-white');
+            
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.className = originalBg;
+            }, 2000);
+          }).catch(() => {
+            button.classList.remove('loading');
+            button.textContent = 'Failed';
+            setTimeout(() => {
+              button.textContent = button.getAttribute('data-copy') || 'Copy';
+            }, 1000);
+          });
+        }
+      });
+    });
+
+    // PGP key copy
+    document.getElementById('copy-pgp')?.addEventListener('click', () => {
+      const pgpText = document.querySelector('pre')?.textContent;
+      if (pgpText) {
+        navigator.clipboard.writeText(pgpText).then(() => {
+          const button = document.getElementById('copy-pgp');
+          if (button) {
+            const originalText = button.textContent;
+            button.textContent = 'Copied to Clipboard!';
+            button.classList.add('bg-green-700');
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove('bg-green-700');
+            }, 2000);
+          }
+        });
+      }
+    });
+
+    // Email from crypto modal functionality
+    document.getElementById('email-from-crypto')?.addEventListener('click', () => {
+      // Close crypto modal first
+      const cryptoModal = document.getElementById('crypto-modal');
+      cryptoModal?.classList.add('hidden');
+      cryptoModal?.classList.remove('flex');
+      
+      // Open email modal
+      const emailModal = document.getElementById('email-modal');
+      emailModal?.classList.remove('hidden');
+      emailModal?.classList.add('flex');
+    });
+
+    // QR Code functionality
+    const qrButtons = document.querySelectorAll('.qr-btn');
+    qrButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const address = button.getAttribute('data-address');
+        const type = button.getAttribute('data-type');
+        const network = button.getAttribute('data-network');
+        
+        // Update modal content
+        document.getElementById('qr-crypto-type').textContent = type;
+        document.getElementById('qr-address').textContent = address;
+        document.getElementById('qr-network').textContent = network;
+        
+        // Generate QR code using a simple service
+        const qrContainer = document.getElementById('qr-code-container');
+        qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(address)}" alt="QR Code" class="mx-auto">`;
+        
+        // Show modal
+        const qrModal = document.getElementById('qr-modal');
+        qrModal?.classList.remove('hidden');
+        qrModal?.classList.add('flex');
+      });
+    });
+
+    // QR modal close functionality
+    document.getElementById('close-qr-modal')?.addEventListener('click', () => {
+      const qrModal = document.getElementById('qr-modal');
+      qrModal?.classList.add('hidden');
+      qrModal?.classList.remove('flex');
+    });
+
+    // Copy address from QR modal
+    document.getElementById('copy-qr-address')?.addEventListener('click', () => {
+      const address = document.getElementById('qr-address')?.textContent;
+      if (address) {
+        navigator.clipboard.writeText(address).then(() => {
+          const button = document.getElementById('copy-qr-address');
+          const originalText = button?.textContent;
+          if (button) {
+            button.textContent = 'Copied!';
+            button.classList.add('bg-green-600');
+            button.classList.remove('bg-blue-600');
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove('bg-green-600');
+              button.classList.add('bg-blue-600');
+            }, 2000);
+          }
+        });
+      }
+    });
+
+
+  });
+</script> 

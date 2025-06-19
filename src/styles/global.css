@@ -1,69 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
 @import "tailwindcss";
-@import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-:root,
-html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
-}
-
-html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60bf;
-  --border: #ab4b08;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
+/* Clean Typewriter Style */
+:root {
+  --paper-bg: #fefefe;
+  --paper-texture: #f9f9f9;
+  --ink-black: #1a1a1a;
+  --ink-blue: #2563eb;
+  --ink-gray: #4b5563;
+  --ink-light: #6b7280;
+  --accent-yellow: #fbbf24;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --border-color: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.08);
 }
 
 @layer base {
   * {
-    @apply border-border outline-accent/75;
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+    @apply border-gray-200;
   }
+  
   html {
     @apply overflow-y-scroll scroll-smooth;
+    background: var(--paper-bg);
   }
+  
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col selection:bg-blue-100;
+    background: var(--paper-bg);
+    color: var(--ink-black);
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
   }
-  a,
-  button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+  
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+    text-decoration: none;
   }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-  section,
-  footer {
-    @apply mx-auto max-w-app px-4;
+  
+  a:hover {
+    text-decoration: underline;
   }
 }
 
-@utility max-w-app {
-  @apply max-w-3xl;
+/* Typography hierarchy */
+.typewriter-title {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: var(--ink-black);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-.active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
+.typewriter-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--ink-blue);
+  line-height: 1.4;
 }
 
-/* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 1rem;
+.typewriter-body {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  font-size: 0.875rem;
+  color: var(--ink-black);
+  line-height: 1.7;
+}
+
+.typewriter-small {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  letter-spacing: 0.05em;
+}
+
+/* Clean structured cards */
+.paper-card {
+  background: var(--paper-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px var(--shadow);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.2s ease;
+}
+
+.paper-card:hover {
+  box-shadow: 0 4px 6px var(--shadow);
+  transform: translateY(-1px);
+}
+
+/* Structured sidebar */
+.paper-sidebar {
+  background: var(--paper-texture);
+  border-right: 1px solid var(--border-color);
+  padding: 2rem;
+}
+
+/* Enhanced social links with better UX */
+.social-link {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:focus-visible {
+  ring: 2px;
+  ring-color: var(--accent-blue);
+  ring-offset: 2px;
+}
+
+.social-link:hover {
+  transform: translateY(-1px);
+}
+
+.social-link:active {
+  transform: translateY(0);
+}
+
+/* Subtle ripple effect on click */
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.1;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  pointer-events: none;
+}
+
+.social-link:active::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading state for buttons */
+.social-link.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.social-link.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translateY(-50%);
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Subtle pulse animation for interactive hints */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Bounce animation for interactive elements */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s ease-in-out infinite;
+}
+
+/* Simple, clean hover effect for name */
+#name-trigger {
+  position: relative;
+}
+
+#name-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  transition: width 0.3s ease;
+}
+
+#name-trigger:hover::after {
+  width: 100%;
+}
+
+/* Subtle wiggle animation to hint at interactivity */
+#name-trigger {
+  animation: subtleWiggle 4s ease-in-out infinite;
+}
+
+#name-trigger:hover {
+  animation: none; /* Stop wiggle on hover */
+}
+
+@keyframes subtleWiggle {
+  0%, 85%, 100% {
+    transform: rotate(0deg);
+  }
+  87% {
+    transform: rotate(0.5deg);
+  }
+  89% {
+    transform: rotate(-0.5deg);
+  }
+  91% {
+    transform: rotate(0.5deg);
+  }
+  93% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Better modal animations */
+.modal-enter {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-exit {
+  animation: modalFadeOut 0.15s ease-in;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Smooth bio reveal */
+#bio-reveal {
+  backdrop-filter: blur(8px);
+  animation: bioSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes bioSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clean highlight effects */
+.highlight-yellow {
+  background: var(--accent-yellow);
+  color: var(--ink-black);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.highlight-blue {
+  background: var(--accent-blue);
+  color: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.highlight-green {
+  background: var(--accent-green);
+  color: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Structured spacing */
+.section-spacing {
+  margin-bottom: 2rem;
+}
+
+.item-spacing {
+  margin-bottom: 1rem;
+}
+
+/* Enhanced responsive design with better touch targets */
+@media (max-width: 1023px) {
+  body {
+    font-size: 13px;
+    /* Add padding bottom to account for mobile expandable section */
+    padding-bottom: 4rem;
+  }
+  
+  .typewriter-title {
+    font-size: 1.875rem;
+  }
+  
+  .typewriter-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .paper-sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem;
+    /* Ensure sidebar stays at the top and doesn't interfere with expandable section */
+    position: relative;
+    z-index: 10;
+  }
+  
+  .paper-card {
+    padding: 1.25rem;
+  }
+  
+  /* Better touch targets on mobile */
+  .social-link {
+    min-height: 48px;
+    padding: 0.875rem !important;
+  }
+  
+  /* Larger tap targets for mobile */
+  #name-trigger {
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
+
+  /* Mobile layout adjustments */
+  .min-h-screen {
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Ensure the main content area doesn't get hidden behind mobile expandable section */
+  .min-h-screen.flex {
+    padding-bottom: 4rem; /* Space for collapsed mobile section */
+  }
+
+  /* Hide modals behind the expandable section when expanded */
+  .mobile-feed.expanded ~ * {
+    pointer-events: none;
+  }
+
+  /* Ensure expandable section is above other content */
+  .mobile-feed {
+    z-index: 40 !important;
+  }
+
+  /* Add subtle shadow to expandable section when expanded */
+  .mobile-feed.expanded {
+    filter: drop-shadow(0 -4px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  /* Improve touch interactions */
+  .drag-handle {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: pan-y;
+  }
+
+  /* Prevent body scroll when dragging */
+  .mobile-feed.dragging {
+    touch-action: none;
+  }
+
+  .mobile-feed.dragging ~ * {
+    overflow: hidden;
+  }
+}
+
+/* Desktop specific improvements */
+@media (min-width: 1024px) {
+  /* Ensure desktop layout is clean */
+  body {
+    padding-bottom: 0;
+  }
+  
+  .min-h-screen.flex {
+    padding-bottom: 0;
+  }
 }
