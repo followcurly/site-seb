@@ -8,8 +8,6 @@ export interface SubstackPost {
   content: string;
   author: string;
   excerpt?: string;
-  readingTime?: number;
-  wordCount?: number;
   categories?: string[];
   enclosure?: {
     url: string;
@@ -40,10 +38,6 @@ export async function fetchSubstackFeed(feedUrl: string): Promise<SubstackPost[]
       // Extract better excerpt from content
       const excerpt = extractExcerpt(content, contentSnippet);
       
-      // Calculate reading time and word count
-      const wordCount = countWords(content);
-      const readingTime = calculateReadingTime(wordCount);
-      
       // Extract categories from content or tags
       const categories = extractCategories(item);
 
@@ -55,8 +49,6 @@ export async function fetchSubstackFeed(feedUrl: string): Promise<SubstackPost[]
         content,
         author: item.creator || feed.title || 'Unknown',
         excerpt,
-        readingTime,
-        wordCount,
         categories,
         enclosure: item.enclosure ? {
           url: item.enclosure.url,
@@ -87,16 +79,7 @@ function extractExcerpt(content: string, fallback: string): string {
   return textContent.length > 200 ? textContent.substring(0, 200).trim() + '...' : textContent;
 }
 
-function countWords(text: string): number {
-  if (!text) return 0;
-  const cleanText = text.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  return cleanText ? cleanText.split(' ').length : 0;
-}
 
-function calculateReadingTime(wordCount: number): number {
-  // Average reading speed is 200-250 words per minute, let's use 225
-  return Math.ceil(wordCount / 225);
-}
 
 function extractCategories(item: any): string[] {
   const categories: string[] = [];
